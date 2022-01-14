@@ -1,0 +1,15 @@
+# ninja log v5
+6	361	6637978538006601	cppnotes/CMakeFiles/cppnotes.dir/gui.cpp.obj	f3214148b3e7412b
+11	2100	6637978555381696	cppnotes/CMakeFiles/cppnotes.dir/cppnotes.cpp.obj	8265ab9f647b29ed
+1	3086	6637987050091529	cppnotes/CMakeFiles/cppnotes.dir/notemanager.cpp.obj	13be7546116efce3
+3087	4869	6637987060977492	cppnotes/cppnotes.exe	ce1c7ff929903cef
+56	2024	6638924086092121	cppnotes/CMakeFiles/cppnotes.dir/cppnotes.cpp.obj	8265ab9f647b29ed
+1	1643	6638934519444999	cppnotes/CMakeFiles/cppnotes.dir/cppnotes.cpp.obj	8265ab9f647b29ed
+1	1406	6638935578679972	cppnotes/CMakeFiles/cppnotes.dir/cppnotes.cpp.obj	8265ab9f647b29ed
+13	2411	6638935588708447	cppnotes/CMakeFiles/cppnotes.dir/notemanager.cpp.obj	13be7546116efce3
+2412	5138	6638935594094972	cppnotes/cppnotes.exe	ce1c7ff929903cef
+6	1427	6638936905060022	cppnotes/CMakeFiles/cppnotes.dir/cppnotes.cpp.obj	8265ab9f647b29ed
+1	2548	6638936916236932	cppnotes/CMakeFiles/cppnotes.dir/notemanager.cpp.obj	13be7546116efce3
+2548	4010	6638936922808195	cppnotes/cppnotes.exe	ce1c7ff929903cef
+1	2543	6638938216968639	cppnotes/CMakeFiles/cppnotes.dir/notemanager.cpp.obj	13be7546116efce3
+2544	3397	6638938220161413	cppnotes/cppnotes.exe	ce1c7ff929903cef
