@@ -14,8 +14,11 @@ namespace models {
 	struct note_t {
 		std::string id;
 		std::string user_id;
+		std::string title;
+		std::string text;
+		std::string date;
 
-		NLOHMANN_DEFINE_TYPE_INTRUSIVE(note_t, id, user_id);
+		NLOHMANN_DEFINE_TYPE_INTRUSIVE(note_t, id, user_id, title, text, date);
 	};
 }
 

@@ -16,6 +16,7 @@ namespace g {
 template<typename T>
 inline T read_file_and_parse(const std::filesystem::path& path) {
 	std::ifstream f(path);
+	std::noskipws(f);
 	return nlohmann::json::parse(std::istream_iterator<char>(f), std::istream_iterator<char>()).get<T>();
 }
 
@@ -67,9 +68,15 @@ void notemanager::read_files() {
 }
 
 void notemanager::write_files() {
+	std::ofstream ofs;
 
-}
+	ofs.open(users_file_name);
+	auto data = nlohmann::json(g::manager_state->users).dump();
+	ofs.write(data.c_str(), data.size());
+	ofs.close();
 
-void notemanager::update_files() {
-	
+	ofs.open(notes_file_name);
+	data = nlohmann::json(g::manager_state->notes).dump();
+	ofs.write(data.c_str(), data.size());
+	ofs.close();
 }

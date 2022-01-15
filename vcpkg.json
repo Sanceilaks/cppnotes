@@ -1,8 +1,0 @@
-{
-  "name": "vvengine",
-  "version-string": "1",
-  "dependencies": [
-    "sdl2",
-    "nlohmann-json"
-  ]
-}

@@ -3,6 +3,7 @@
 #include <memory>
 
 #include "models.hpp"
+#include "executor.hpp"
 
 namespace notemanager {
 	enum class guid_type {
@@ -29,7 +30,7 @@ namespace notemanager {
 		return user == state->users.end() ? nullptr : &*user;
 	}
 
-	inline models::note_t* get_node_by_guid(std::string_view guid) {
+	inline models::note_t* get_note_by_guid(std::string_view guid) {
 		auto state = get_manager_state();
 		auto note = std::find_if(state->notes.begin(), state->notes.end(), [&](models::note_t& u) { return u.id == guid; });
 		return note == state->notes.end() ? nullptr : &*note;
@@ -38,6 +39,28 @@ namespace notemanager {
 	void read_files();
 	void write_files();
 
-	// Update data from and to files. First - from, second - to.
-	void update_files();
+	inline void add_user(const models::user_t& user) {
+		if (get_user_by_guid(user.id)) return;
+		get_manager_state()->users.push_back(user);
+		executor::execute(std::bind(write_files));
+	}
+
+	inline void remove_user(std::string_view guid) {
+		auto state = get_manager_state();
+		std::erase_if(state->users, [&](models::user_t& u) { return u.id == guid; });
+		std::erase_if(state->notes, [&](models::note_t& n) { return n.user_id == guid; });
+		executor::execute(std::bind(write_files));
+	}
+
+	inline void add_note(const models::note_t& note) {
+		if (get_note_by_guid(note.id)) return;
+		get_manager_state()->notes.push_back(note);
+		executor::execute(std::bind(write_files));
+	}
+
+	inline void remove_note(std::string_view guid) {
+		auto state = get_manager_state();
+		std::erase_if(state->notes, [&](models::note_t& u) { return u.id == guid; });
+		executor::execute(std::bind(write_files));
+	}
 }
